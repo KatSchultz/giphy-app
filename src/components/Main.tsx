@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { giphyCall } from "../services/api.services";
+import ResultsList from "./ResultsList";
+import SearchForm from "./SearchForm";
 
 export default function Main() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [gif, setGif] = useState({});
+  const [gifs, setGifs] = useState({});
 
-  useEffect(getGifs, []);
+  useEffect(getGifs, [searchTerm]);
 
   function getGifs() {
     giphyCall().then((response) => {
@@ -13,5 +15,15 @@ export default function Main() {
       return response;
     });
   }
-  return <div>Main</div>;
+
+  function updateSearchTerm(term: string) {
+    setSearchTerm(term);
+  }
+
+  return (
+    <>
+      <SearchForm updateTerm={updateSearchTerm} />
+      <ResultsList gifs={gifs} />
+    </>
+  );
 }

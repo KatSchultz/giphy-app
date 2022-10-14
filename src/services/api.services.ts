@@ -6,8 +6,8 @@ export function giphyCall() {
     .get(`https://api.giphy.com/v1/gifs/trending`, {
       params: {
         api_key: config.apiKey,
-        limit: 2,
+        limit: 1,
       },
     })
-    .then((response) => response);
+    .then((response) => response.data.data);
 }
