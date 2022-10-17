@@ -7,7 +7,7 @@ export function giphyCall(input: string) {
     .get(`https://api.giphy.com/v1/gifs/search`, {
       params: {
         api_key: config.apiKey,
-        limit: 1,
+        limit: 3,
         q: input,
       },
     })

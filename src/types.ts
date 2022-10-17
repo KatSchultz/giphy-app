@@ -1,6 +1,7 @@
 export interface Gif {
   type: string;
   id: string;
+  title: string;
   url: string;
   images: {
     fixed_width: {
