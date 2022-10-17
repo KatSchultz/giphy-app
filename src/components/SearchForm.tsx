@@ -11,7 +11,7 @@ export default function SearchForm({ updateTerm }: Props) {
     setInput(e.target.value);
   }
 
-  function submitHandler(e: React.FormEvent<SubmitEvent>) {
+  function submitHandler(e: React.FormEvent) {
     e.preventDefault();
     updateTerm(input);
   }
@@ -20,7 +20,9 @@ export default function SearchForm({ updateTerm }: Props) {
     <form action="">
       <label htmlFor="">Search for a GIF</label>
       <input type="text" value={input} onChange={handleChange} />
-      <button type="submit">Search</button>
+      <button type="submit" onClick={submitHandler}>
+        Search
+      </button>
     </form>
   );
 }

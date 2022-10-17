@@ -14,7 +14,7 @@ export default function ResultsList({ gifs }: Props) {
       <h2>Results</h2>
       {gifs.map((gif) => (
         <div key={gif.id}>
-          <img src={gif.url} alt="" style={styles} />
+          <img src={gif.images.fixed_width.url} alt="" style={styles} />
         </div>
       ))}
     </div>
